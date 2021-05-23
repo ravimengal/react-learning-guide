@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>file structure</title>
+</head>
+
+<body>
+
+    <h1>package json</h1>
+
+    <p>it contain package we have install in it.</p><br>
+
+
+    <h1> package-lock json</h1>
+
+    <p>
+        it contains all the depencencies we dont have to work in it npm handle it by its own.
+    </p>
+
+    <br>
+
+    <h1>node modules</h1>
+
+    <p>packages install by node . we do not have to make change is node modules</p>
+
+    <h1> public</h1>
+    <p>
+        <b>index.html file </b> it is application entry point. it have meta information
+    </p>
+    <h1>type of component</h1>
+
+    <ul>
+
+        <li>functional component</li>
+        <li>class component</li>
+    </ul>
+    <p>
+        we use functional component more than class component. class component is more powerfull
+
+        <!-- import React from 'react';
+        export default class Home extends React.Component {
+            render() {
+                return (
+        
+                    <div >
+                    <h1 > Home component </h1>
+                     </div>
+        ) } } 
+         -->
+
+        in app.js we need to import Home.js
+        <!-- import Home from './Home.js' -->
+
+        Example of class component
+
+        <!-- import React from 'react';
+        class Profile extends React.Component {
+            constructor()
+            {
+        
+                super()
+            }
+        
+            componentDidMount()
+            {
+                 console.log("constructor");
+            }
+        
+            render() {
+                return (
+        
+                    <div >
+        
+                    <h1 > Profile Component </h1> </div>
+                )
+            }
+        
+        }
+        export default Profile; -->
+    </p>
+
+    <p>
+        when a component name start with class it is class (stateful) component. we can use constructor. we can class we can use state.we can also use life cycle method.
+
+
+    </p>
+    <h1>
+        functioal component it is stateless components
+    </h1>
+    <p>
+        peice of code we can reuse that code. there is no this scope no need to bind using this. example to functional component using of props
+
+        <!--     
+        import React from 'react';
+        function Profile(props)
+        {
+       
+           const red=()=>{
+               alert("red function is called");
+           }
+        {
+            return <div>
+                <h1 onClick={red}>{props.text} </h1>
+                </div>
+        }
+       }
+       
+        export default  Profile;
+     -->
+
+        <!-- <Profile text="Profile Component from app.js"/> -->
+
+    </p>
+
+
+    <h1>
+        Props
+    </h1>
+    <p>
+        if we want to transfer data by passing parameter through function.
+    </p>
+    <h1>
+        props in functional component
+    </h1>
+    <p>
+
+        <!-- import React from 'react';
+        function Profile(props)
+        {
+        
+        return(
+        <div>
+        <h1>{props.text.name}</h1> calling object
+        </div>
+        
+        
+        )
+        
+        }
+        
+        export default Profile; -->
+
+        <!-- <Profile  text={name:"ravi"}/> -->object in props
+    </p>
+    <h1>
+
+        props in class components
+    </h1>
+    <p>
+
+
+        we need to use this keyword for calling object
+        <!-- 
+        import React from 'react';
+
+
+        export default class Profile extends React.Component
+        {
+        
+        render()
+        {
+        
+            return(
+        
+                <div>
+                    <h1>{this.props.text.name}</h1>
+                </div>
+            )
+        
+        
+        }
+        
+        } -->
+
+
+        <!-- <Profile  text={name:"ravi"}/> -->object in props
+
+    </p>
+
+
+    <h1>
+        State setState is use to update state
+    </h1>
+    <p>
+        what is state: ot is a class internal object and private and can not accessable out side the class. It is object but act as variables. and also update it props can change but state does not change. super key wordin constructor help to call constructor
+        first as soon as it start processing
+        <!-- import React from 'react';
+
+        class Profile extends React.Component{
+        
+            constructor()
+            {
+        
+                super()
+            }
+            this.state={
+                name:"ravi";
+            }
+            render()
+            {
+        
+                return(
+        <div>
+        
+            <h1>hello state.</h1>
+        </div> -->
+
+
+        <!-- ) } } export default Profile; -->
+
+
+
+    </p>
+
+
+    <h1>event handling in react</h1>
+
+    <p>we use arrow function with onclick because arrow function dont have its own this so it use parents this </p>
+
+    event handling with class component
+    <!-- import React from "react";
+
+
+export default class Profile extends React.Component
+{
+
+   testFun()
+    {
+
+        alert("testFun");
+
+    }
+     render()
+     {
+
+
+        return(
+                    <div>
+                            <h1>profile</h1>
+                            <button onClick={()=>this.testFun()}>Click me</button>
+                    </div>
+
+
+        )
+     }
+} -->
+    <h1>event hsndling with class and functional component</h1>
+
+    <p>event handling with functional component</p>
+
+
+    <!-- import React from "react";
+
+
+export default function  Profile()
+{
+            const testFun=()=>{
+                    alert("testFun");
+
+            }
+        return(
+                    <div>
+                            <h1>profile</h1>
+                            <button onClick={testFun}>Click me</button>
+                    </div>
+
+
+        )
+     
+} -->
+
+    <h1> what is life cycle method</h1>
+    <p>the whole process or creation of component and destruction of the component</p>
+    <ul>life cycle of method
+
+        <li>componentDidMount- when it is call when our data is ready. we need to call api always in componentDidMount </li>
+        <p>componentDidMount- example</p>
+        import React from 'react';
+
+        <!-- export default class Component extends React.Component{
+constructor()
+{
+
+super();
+this.state={
+    data:null
+}
+console.warn("const");
+}
+componentDidMount()
+{
+    this.setState({data:"updated"});
+    console.warn("componentDidMount");
+    
+}
+
+
+    render(){
+
+        return(
+
+            <div>
+
+                <h1>Life cycle method: componentDidMount</h1>
+            </div>
+        )
+    
+    }
+} -->
+
+
+        <li>componentDidUpdate- </li>
+        <p>example componentDidUpdate</p>
+
+
+
+        <!-- import React from 'react';
+
+export default class Component extends React.Component{
+constructor()
+{
+
+super();
+this.state={
+    active:null,
+    who:null
+}
+}
+componentDidUpdate()
+{
+console.warn("componentDidUpdate");
+
+if(this.state.who==null){
+this.setState({who:"ravi mengal"}) here we need to give condition otherwise it will stuck in loop
+
+}
+}
+
+ render(){
+
+        return(
+
+            <div>
+
+                <h1>Life cycle method: componentDidUpdate</h1>
+                <button onclick={()=>{this.setState({active:"yes"})}}>Activate</button>
+            </div>
+        )
+    
+    }
+} -->
+        when we update some state then componentDidUpdate function will be called three papameter prevProps, prevState, snapshot. this fumction is invoked immediately after updating occurs. this method is notcakked for the initial render.
+
+
+
+
+        <li>componentWillUnmount</li>
+
+        <p>app.js file</p>
+
+        <!-- import logo from './logo.svg';
+import './App.css';
+import User from './User';
+import React from 'react'
+
+class App extends React.Component {
+
+  constructor() {
+
+    super()
+    this.state = {
+      toggle: true
+
+    }
+
+  }
+
+  render() {
+
+
+
+    return (
+
+      <div>
+
+        <h1>ComponentWillUnmount</h1>
+        {
+
+          this.state.toggle?
+          <User/>:null
+        }
+
+        <button onClick={() => { this.setState({ toggle:!this.state.toggle }) }} > Delete</button>
+      </div>
+    )
+  }
+} -->
+
+
+
+        <p>userjs file</p>
+
+        <!-- import React, { Component } from 'react'
+
+export default class User extends Component {
+    componentWillUnmount()
+    {
+
+        alert("user has been deleted")
+    }
+    render() {
+        return (
+            <div>
+                <ul>
+
+                    <li>Name: Ravi mengal</li>
+                    <li>email: mengal22ravi@gmail.com</li>
+                    <li>contact:990823909033</li>
+                
+                </ul>
+            </div>
+        )
+    }
+} -->
+
+
+        <p>when component is destoryed then componentWillUnmount is called. It does not have any parameter . It in invoked immediately before a component is unmounted and destroyed. You should not call setState() function in componentWillUnmont() beause
+            the component will never be re-rendered. Once a component instance is unmounted, it will never be mounted again.</p>
+        <p>why life cycle is important</p>
+    </ul>
+
+
+    <h1>React hooks</h1>
+    <p>
+        they let us usetate and other react features without a class. import React,{useState} from 'react';
+
+        <!-- function App()
+{
+  const [count ,setCount] = useState(100)
+
+  return(
+
+    <div>
+      <h1>react hooks in functional components {count}</h1>
+      <button onClick={()=> {setCount(count+1)}}>increment</button>
+    </div>
+
+      )
+} -->
+
+
+        <!-- export default App; -->
+
+    </p>
+    <h1>useEffect</h1>
+    <p>what is hooks:- react introduce react class component after that functional component are used y many user but state are not used in the functional component so hooks are help to use state with class component useEffect can be use as lifecycle method
+        and it can handle the life cycle method also.
+        <!-- 
+
+        import React, {useEffect, useState} from 'react'
+
+
+const Form = ()=>{
+
+const [count, setCount]= useState(1)
+useEffect(() => {
+    
+
+}, [count==5])
+return(
+
+
+    <div>
+         
+        <h1>React hook useEffect......{count}</h1>
+        <button onClick={()=>{setCount(count+1)}}>Increment</button>
+    </div>
+)
+
+
+}
+export default Form; -->
+    </p>
+
+    <h1>listing with map function</h1>
+    <p>The map() function is used to iterate over an array and manipulate or change data items.
+
+
+
+
+
+        <!-- 
+        import React from 'react';
+
+import "./styles.css";
+
+class App extends React.Component{
+
+  constructor()
+  {
+
+
+    super();
+    this.state={
+
+        list:[
+            {name:"ravi mengal", email:"mengal22ravi@gmail.com"},
+            {name:"muthal", email:"muthal@gmail.com"} ,
+            {name:"nilesh", email:"mutha@gmail.com"}
+        ]
+
+    }
+  }
+
+render(){
+
+  return(
+
+    <div>
+      <h1>listing with map</h1>
+      {
+          this.state.list.map((item)=>
+          <div>
+            
+            Name:<span>{item.name}</span>
+            email:<span>{item.email}</span>
+          </div>
+          
+          
+          )
+
+
+      }
+    </div>
+  );
+}
+
+}
+export default App; -->
+    </p>
+</body>
+
+</html>
+
+
+
+
+<h1>Fetch api in react</h1>
+<p>to get the data from api we can use fetch and axios</p>
+
+<!-- 
+import React, {useState, useEffect} from 'react';
+
+
+const [count, setCount]=useState()
+
+useEffect()=>{
+
+fetch('URL').then(res=>res.json()).then(res2=>{
+
+    setCount(res2.value.number)
+})
+
+} -->
+
+
+<h1>Axios for api calling</h1>
+<p>Axios Component for React with child function callback. This is intended to allow in render async requests.
+
+
+Same great features found in Axios
+Component driven
+Child function callback (error, response, isLoading, makeRequest, axios) => { }
+Auto cancel previous requests
+Debounce to prevent rapid calls.
+Request only invoked on prop change and isReady state.
+Callback props for onSuccess, onError, and onLoading
+Supports custom axios instances through props or a <AxiosProvider ... >
+Create your own request components wrapped using the withAxios({options})(ComponentToBeWrapped) HoC</p>
+
+
+
+
+
+
+
+
+
+<!-- function App() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          
+          {/* <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            component
+          </a> */}
+       
+        </header>
+      </div>
+    );
+  } -->
+
+<!-- import logo from './logo.svg';
+import './App.css';
+import Profile from './Profile'
+
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        
+        {/* <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          component
+        </a> */}
+     
+      </header>
+    </div>
+  );
+}
+
+export default App; -->
+
+
+<!-- <h1>Event handling in react</h1>
+        
+{/* <a
+  className="App-link"
+  href="https://reactjs.org"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  component
+</a> */} -->
